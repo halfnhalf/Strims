@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "vc-video-1.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Screen Shot 2015-11-26 at 10.46.09 AM.png",
       "scale" : "2x"
     },
     {
