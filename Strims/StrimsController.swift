@@ -9,36 +9,37 @@
 import Foundation
 
 class StrimsController {
-	var strims: Dictionary<String, Bool> = [:]
 	private let strimURL: String
 	private let command: String
 	private let quality: String
-	private let configPath: String
+    private let strimsDefaultList: [String: AnyObject]
 	private let qualityOfServiceClass: qos_class_t
 	private let backgroundQueue: dispatch_queue_t
+    private let userDefaultObject: NSUserDefaults
+    
+    private(set) var strimsList: [String: Bool]!
 	
 	init(strimURL: String, command: String, quality: String) {
 		qualityOfServiceClass = QOS_CLASS_BACKGROUND
 		backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-		
+        userDefaultObject = NSUserDefaults.init()
+        strimsList = [String: Bool]()
+        
 		self.strimURL = strimURL
 		self.command = command
 		self.quality = quality
-		
-		//create a native dictionary from plist. Currently swift has no way to read plist natively
-		//so this is a weird workaround
-		if let path = NSBundle.mainBundle().pathForResource("config", ofType: "plist") {
-			self.configPath = path
-			if let strims = NSDictionary(contentsOfFile: path) as? Dictionary<String, Bool> {
-				for (name, _): (String, Bool) in strims {
-					self.strims[name] = false
-				}
-			}
-		}
-        else {
-            self.configPath = String()
+        
+        if userDefaultObject.persistentDomainForName(NSBundle.mainBundle().bundleIdentifier!) != nil {
+            strimsDefaultList = (userDefaultObject.persistentDomainForName(NSBundle.mainBundle().bundleIdentifier!))!
+            
+            for (name, _): (String, AnyObject) in strimsDefaultList {
+                self.strimsList[name] = false
+            }
+            paraScan(self.strimsList)
         }
-		paraScan(self.strims)
+        else {
+            strimsDefaultList = [String: AnyObject]()
+        }
 	}
 	
 	//function to asyncly run Scan on each stream name
@@ -46,30 +47,28 @@ class StrimsController {
 		let group: dispatch_group_t = dispatch_group_create()
 		for (name, _) in strims {
 			dispatch_group_async(group, backgroundQueue, {
-				self.strims[name.lowercaseString] = self.scan(name)
+				self.strimsList[name.lowercaseString] = self.scan(name)
 			})
 		}
 		dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
 	}
 	
 	func removeStrim(name: String) {
-		assert(strims[name] != nil)
-		if let _ = strims.removeValueForKey(name) {
+		assert(strimsList[name] != nil)
+		if let _ = strimsList.removeValueForKey(name) {
 			rewriteList()
 		}
 	}
 	
 	func addStrim(name: String) {
 		if name != " " && name != "" {
-			strims[name.lowercaseString] = false
+			strimsList[name.lowercaseString] = false
 			rewriteList()
 		}
 	}
 	
 	func rewriteList() {
-		let dict = strims as NSDictionary
-		
-		dict.writeToFile(configPath, atomically: true)
+        userDefaultObject.setPersistentDomain(strimsList, forName: NSBundle.mainBundle().bundleIdentifier!)
 	}
 	
 	func scan(strim: String) -> Bool {

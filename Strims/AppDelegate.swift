@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	
 	//populate the list of streams and their status
 	func populateStreamMenuItems() {
-		for (name, online) in strimsController.strims {
+		for (name, online) in strimsController.strimsList {
 			let (newItem, deleteMenu): (NSMenuItem, NSMenu) = nameMenuItem(name: name, online: online)[]
 			
 			newItem.target = self
@@ -70,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	func refreshMenuItem(name: String) {
 		//IF WE MAKE IT HERE ALL STRIMCONTROLLER MUST BE DEFINED UP TO REALTIME
 		if mainMenu.itemWithTitle(name) == nil {
-			let (newItem, deleteMenu): (NSMenuItem, NSMenu) = nameMenuItem(name: name, online: strimsController.strims[name]!)[]
+			let (newItem, deleteMenu): (NSMenuItem, NSMenu) = nameMenuItem(name: name, online: strimsController.strimsList[name]!)[]
 			
 			newItem.target = self
 			deleteMenu.itemAtIndex(0)!.target = self
@@ -79,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 			mainMenu.setSubmenu(deleteMenu, forItem: newItem)
 		}
 		
-		mainMenu.itemWithTitle(name)!.state = (strimsController.strims[name]! ? NSOnState : NSOffState)
+		mainMenu.itemWithTitle(name)!.state = (strimsController.strimsList[name]! ? NSOnState : NSOffState)
 	}
 
 	func applicationWillTerminate(aNotification: NSNotification) {
@@ -102,9 +102,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	
 	func refresh() {
 		//only dispatch refreshmenuitem, refresh itself must be dispatched by the caller
-		self.strimsController.paraScan(self.strimsController.strims)
+		self.strimsController.paraScan(self.strimsController.strimsList)
 		let group: dispatch_group_t = dispatch_group_create()
-		for (name, _) in self.strimsController.strims {
+		for (name, _) in self.strimsController.strimsList {
 			dispatch_group_async(group, backgroundQueue, {
 				self.refreshMenuItem(name)
 			})
@@ -116,11 +116,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	func timerEvents(sender: NSTimer) {
 		//did streams change?
 		dispatch_async(backgroundQueue, {
-			let temp: Dictionary = self.strimsController.strims
+			let temp: Dictionary = self.strimsController.strimsList
 			self.refresh()
 			for (name, _) in temp {
-				if (temp[name] != self.strimsController.strims[name]) {
-					let status: String = self.strimsController.strims[name]! ? "online" : "offline"
+				if (temp[name] != self.strimsController.strimsList[name]) {
+					let status: String = self.strimsController.strimsList[name]! ? "online" : "offline"
 					self.initNotify(name, status: status)
 				}
 			}
