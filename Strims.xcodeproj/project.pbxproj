@@ -26,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		925539DB1C076985007DC675 /* Strims.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Strims.entitlements; sourceTree = "<group>"; };
 		9258EAD81A3AE8B200881429 /* StrimsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrimsController.swift; sourceTree = "<group>"; };
 		929895D51A53B758005AB2D0 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = ../../../../../../../../Applications/Strims.app/Contents/Resources/config.plist; sourceTree = "<group>"; };
 		92F95FA11A3A5556005264EB /* Strims.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strims.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +78,7 @@
 		92F95FA31A3A5556005264EB /* Strims */ = {
 			isa = PBXGroup;
 			children = (
+				925539DB1C076985007DC675 /* Strims.entitlements */,
 				92F95FA61A3A5556005264EB /* AppDelegate.swift */,
 				9258EAD81A3AE8B200881429 /* StrimsController.swift */,
 				929895D51A53B758005AB2D0 /* config.plist */,
@@ -163,6 +165,12 @@
 				TargetAttributes = {
 					92F95FA01A3A5555005264EB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = ZGYZG32Q7G;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					92F95FB01A3A5556005264EB = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -284,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -321,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
