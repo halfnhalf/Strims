@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F95FA61A3A5556005264EB /* AppDelegate.swift */; };
 		9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258EAD81A3AE8B200881429 /* StrimsController.swift */; };
-		929895D61A53B758005AB2D0 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 929895D51A53B758005AB2D0 /* config.plist */; };
+		92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB6ED61C2B48DE008460A3 /* MenuController.swift */; };
 		92F95FA91A3A5556005264EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F95FA81A3A5556005264EB /* Images.xcassets */; };
 		92F95FAC1A3A5556005264EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F95FAA1A3A5556005264EB /* MainMenu.xib */; };
 		92F95FB81A3A5556005264EB /* StrimsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F95FB71A3A5556005264EB /* StrimsTests.swift */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		925539DB1C076985007DC675 /* Strims.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Strims.entitlements; sourceTree = "<group>"; };
 		9258EAD81A3AE8B200881429 /* StrimsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrimsController.swift; sourceTree = "<group>"; };
-		929895D51A53B758005AB2D0 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = ../../../../../../../../Applications/Strims.app/Contents/Resources/config.plist; sourceTree = "<group>"; };
+		92BB6ED61C2B48DE008460A3 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		92F95FA11A3A5556005264EB /* Strims.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strims.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F95FA51A3A5556005264EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92F95FA61A3A5556005264EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				925539DB1C076985007DC675 /* Strims.entitlements */,
 				92F95FA61A3A5556005264EB /* AppDelegate.swift */,
 				9258EAD81A3AE8B200881429 /* StrimsController.swift */,
-				929895D51A53B758005AB2D0 /* config.plist */,
+				92BB6ED61C2B48DE008460A3 /* MenuController.swift */,
 				92F95FA81A3A5556005264EB /* Images.xcassets */,
 				92F95FAA1A3A5556005264EB /* MainMenu.xib */,
 				92F95FA41A3A5556005264EB /* Supporting Files */,
@@ -202,7 +202,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929895D61A53B758005AB2D0 /* config.plist in Resources */,
 				92F95FA91A3A5556005264EB /* Images.xcassets in Resources */,
 				92F95FAC1A3A5556005264EB /* MainMenu.xib in Resources */,
 			);
@@ -223,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */,
+				92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */,
 				9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

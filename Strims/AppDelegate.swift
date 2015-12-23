@@ -31,12 +31,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
 		strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
 		
+        if checkForLivestreamer()
 		setupMenuItems()
 		populateStreamMenuItems()
 		mainMenu.update()
 		//DO NOT DISPATCH THE TIMER, dispatch is done in timerevents
 		timer = NSTimer.scheduledTimerWithTimeInterval(INTERVAL, target: self, selector: "timerEvents:", userInfo: nil, repeats: true)
 	}
+    
+    func checkForLivestreamer() throws -> Bool {
+        let task = NSTask()
+        let pipe = NSPipe()
+        var data: NSData
+        var output: NSString
+        
+        task.launchPath = COMMAND
+        task.standardOutput = pipe
+        task.launch()
+        
+        data = pipe.fileHandleForReading.readDataToEndOfFile()
+        output = NSString(data: data, encoding: NSUTF8StringEncoding)!
+        
+        guard output.containsString("usage") {return false}
+        
+        return true
+    }
 	
 	func setupMenuItems() {
 		let icon = NSImage(named: "menuIcon")
