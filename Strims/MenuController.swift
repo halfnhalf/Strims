@@ -9,7 +9,29 @@
 import Foundation
 import Cocoa
 
+// This class is designed to only handle one instance menu at a time. Strims should never have more than one menu running.
 class MenuController {
+    //IBOUTLETS
+    @IBOutlet weak var mainMenu: NSMenu!
+    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var textFieldWindow: NSWindow!
+    @IBOutlet weak var notificationButton: NSMenuItem!
+    //END IBOUTLETS
+    
+    private var strimsController: StrimsController
+    private var mainMenuButton: NSStatusItem!
+    private let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+    
+    internal var notificationsAreOn: Bool!
+
+    
+    init(_ strimsControllerInject: StrimsController) {
+        strimsController = strimsControllerInject
+        
+        setupMenuItems()
+        populateStreamMenuItems()
+        mainMenu.update()
+    }
     
     
     func setupMenuItems() {
@@ -83,32 +105,6 @@ class MenuController {
         self.mainMenu.update()
     }
     
-    func timerEvents(sender: NSTimer) {
-        //did streams change?
-        dispatch_async(backgroundQueue, {
-            let temp: Dictionary = self.strimsController.strimsList
-            self.refresh()
-            for (name, _) in temp {
-                if (temp[name] != self.strimsController.strimsList[name]) {
-                    let status: String = self.strimsController.strimsList[name]! ? "online" : "offline"
-                    self.initNotify(name, status: status)
-                }
-            }
-        })
-    }
-    
-    func initNotify(name: String, status: String) {
-        let notify: NSUserNotification = NSUserNotification()
-        let center: NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-        
-        
-        center.delegate = self as NSUserNotificationCenterDelegate
-        notify.title = name
-        notify.subtitle = "Is " + status
-        notify.soundName = NSUserNotificationDefaultSoundName
-        notify.deliveryDate = NSDate(timeIntervalSinceNow: 0)
-        if(notificationsAreOn == true) {center.scheduleNotification(notify);}
-    }
     
     func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
         return true
