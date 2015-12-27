@@ -9,14 +9,9 @@
 import Foundation
 import Cocoa
 
+
 // This class is designed to only handle one instance menu at a time. Strims should never have more than one menu running.
-class MenuController {
-    //IBOUTLETS
-    @IBOutlet weak var mainMenu: NSMenu!
-    @IBOutlet weak var textField: NSTextField!
-    @IBOutlet weak var textFieldWindow: NSWindow!
-    @IBOutlet weak var notificationButton: NSMenuItem!
-    //END IBOUTLETS
+class MenuController: NSObject, NSApplicationDelegate {
     
     private var strimsController: StrimsController
     private var mainMenuButton: NSStatusItem!

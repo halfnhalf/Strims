@@ -13,10 +13,19 @@ let COMMAND = "/usr/local/bin/livestreamer"
 let QUALITY = "source"
 let INTERVAL: NSTimeInterval = 10.0
 
+var MAINMENU: NSMenu
+var 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
-	
-	
+    //IBOUTLETS
+    @IBOutlet weak var mainMenu: NSMenu!
+    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var textFieldWindow: NSWindow!
+    @IBOutlet weak var notificationButton: NSMenuItem!
+    @IBOutlet weak var installWindow: NSWindow!
+    //END IBOUTLETS
+    
     private var menuController: MenuController!
 	private var strimsController: StrimsController!
 	private var timer: NSTimer!
@@ -26,7 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 		strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
         menuController = MenuController(strimsController)
 		
-        guard checkForLivestreamer() else {
+        do {
+            try checkForLivestreamer()
+        } catch {
             
         }
 		//DO NOT DISPATCH THE TIMER, dispatch is done in timerevents

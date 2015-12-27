@@ -5,15 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
-            <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Strims" customModuleProvider="target">
             <connections>
+                <outlet property="installWindow" destination="Nyg-A0-8iy" id="VJl-SS-Knq"/>
                 <outlet property="mainMenu" destination="nD3-hv-VdF" id="m9m-vv-PlB"/>
                 <outlet property="notificationButton" destination="imJ-fA-SLB" id="7Ww-VI-6d3"/>
                 <outlet property="textField" destination="k16-s4-Vnj" id="1Ts-0A-F9d"/>
@@ -49,15 +46,15 @@
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="j7K-GH-z8G"/>
             </items>
-            <point key="canvasLocation" x="346" y="-203.5"/>
+            <point key="canvasLocation" x="500" y="-1872.5"/>
         </menu>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="b83-N9-5o7">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="1174" y="1001" width="195" height="21"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="1819" y="1270" width="195" height="19"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="T5X-Om-4Ql">
-                <rect key="frame" x="0.0" y="0.0" width="195" height="21"/>
+                <rect key="frame" x="0.0" y="0.0" width="195" height="19"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField canDrawConcurrently="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k16-s4-Vnj">
@@ -73,7 +70,50 @@
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="328.5" y="-1031.5"/>
+            <point key="canvasLocation" x="730.5" y="-1871.5"/>
+        </window>
+        <window title="Strims" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="Nyg-A0-8iy">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="283" y="305" width="307" height="130"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <view key="contentView" id="O8h-d2-Lpr">
+                <rect key="frame" x="0.0" y="0.0" width="307" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qeH-vU-xRv">
+                        <rect key="frame" x="18" y="88" width="271" height="17"/>
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="Livestreamer is not installed and is required." id="IfW-IJ-Vw1">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="044-un-EnF">
+                        <rect key="frame" x="19" y="19" width="101" height="16"/>
+                        <buttonCell key="cell" type="push" title="Yes" bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A5i-9W-aDK">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                        </buttonCell>
+                    </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyv-of-WeU">
+                        <rect key="frame" x="18" y="64" width="271" height="17"/>
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Would you like to install Livestreamer?" id="b86-Cm-mIL">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-OV-Xiy">
+                        <rect key="frame" x="191" y="19" width="97" height="16"/>
+                        <buttonCell key="cell" type="push" title="No" bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EWb-k9-u4y">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="508.5" y="-1632"/>
         </window>
     </objects>
 </document>
