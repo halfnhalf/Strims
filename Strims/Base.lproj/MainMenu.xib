@@ -5,37 +5,42 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="AppDelegate" customModule="Strims" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Strims" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Strims" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="rnh-qo-hRu" customClass="MenuController" customModule="Strims" customModuleProvider="target">
             <connections>
-                <outlet property="installWindow" destination="Nyg-A0-8iy" id="VJl-SS-Knq"/>
-                <outlet property="mainMenu" destination="nD3-hv-VdF" id="m9m-vv-PlB"/>
-                <outlet property="notificationButton" destination="imJ-fA-SLB" id="7Ww-VI-6d3"/>
-                <outlet property="textField" destination="k16-s4-Vnj" id="1Ts-0A-F9d"/>
-                <outlet property="textFieldWindow" destination="b83-N9-5o7" id="ro3-Ca-vix"/>
+                <outlet property="mainMenu" destination="nD3-hv-VdF" id="s7f-2r-0hJ"/>
+                <outlet property="notificationButton" destination="imJ-fA-SLB" id="vey-Jl-tZq"/>
+                <outlet property="textField" destination="k16-s4-Vnj" id="UH0-OV-ng5"/>
+                <outlet property="textFieldWindow" destination="b83-N9-5o7" id="Kld-dP-CIB"/>
             </connections>
         </customObject>
-        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="16e-cy-WYa" customClass="InstallController" customModule="Strims" customModuleProvider="target">
+            <connections>
+                <outlet property="installWindow" destination="Nyg-A0-8iy" id="TVA-uW-UJ7"/>
+            </connections>
+        </customObject>
         <menu id="nD3-hv-VdF">
             <items>
                 <menuItem title="Refresh" id="S6O-jg-na6">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="refreshButtonClicked:" target="Voe-Tx-rLC" id="Tgh-QE-0Fg"/>
+                        <action selector="refreshButtonClicked:" target="rnh-qo-hRu" id="ieA-8e-rDu"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Add" id="GeJ-yQ-msN">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="addButtonClicked:" target="Voe-Tx-rLC" id="sUo-ro-ptI"/>
+                        <action selector="addButtonClicked:" target="rnh-qo-hRu" id="peL-b7-AM8"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Notifications" state="on" id="imJ-fA-SLB">
                     <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
                     <connections>
-                        <action selector="notificationButtonClicked:" target="Voe-Tx-rLC" id="aje-Cd-jvh"/>
+                        <action selector="notificationButtonClicked:" target="rnh-qo-hRu" id="A61-1X-Xjl"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="gaG-Fr-aGo">
@@ -65,14 +70,14 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="addTextFieldReturn:" target="Voe-Tx-rLC" id="YQN-49-VQH"/>
+                            <action selector="addTextFieldReturn:" target="rnh-qo-hRu" id="z2k-H2-awn"/>
                         </connections>
                     </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="730.5" y="-1871.5"/>
         </window>
-        <window title="Strims" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="Nyg-A0-8iy">
+        <window title="Strims" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Nyg-A0-8iy">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="283" y="305" width="307" height="130"/>
@@ -113,7 +118,7 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="508.5" y="-1632"/>
+            <point key="canvasLocation" x="586.5" y="-1676"/>
         </window>
     </objects>
 </document>

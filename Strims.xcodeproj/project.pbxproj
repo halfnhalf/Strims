@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921DE09F1C33666C0010B829 /* InstallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921DE09E1C33666C0010B829 /* InstallController.swift */; };
 		9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F95FA61A3A5556005264EB /* AppDelegate.swift */; };
 		9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258EAD81A3AE8B200881429 /* StrimsController.swift */; };
 		92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB6ED61C2B48DE008460A3 /* MenuController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		921DE09E1C33666C0010B829 /* InstallController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallController.swift; sourceTree = "<group>"; };
 		925539DB1C076985007DC675 /* Strims.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Strims.entitlements; sourceTree = "<group>"; };
 		9258EAD81A3AE8B200881429 /* StrimsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrimsController.swift; sourceTree = "<group>"; };
 		92BB6ED61C2B48DE008460A3 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				92F95FA61A3A5556005264EB /* AppDelegate.swift */,
 				9258EAD81A3AE8B200881429 /* StrimsController.swift */,
 				92BB6ED61C2B48DE008460A3 /* MenuController.swift */,
+				921DE09E1C33666C0010B829 /* InstallController.swift */,
 				92F95FA81A3A5556005264EB /* Images.xcassets */,
 				92F95FAA1A3A5556005264EB /* MainMenu.xib */,
 				92F95FA41A3A5556005264EB /* Supporting Files */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */,
+				921DE09F1C33666C0010B829 /* InstallController.swift in Sources */,
 				92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */,
 				9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */,
 			);

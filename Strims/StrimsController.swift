@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Zachary Clute. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 class StrimsController {
 	private let strimURL: String

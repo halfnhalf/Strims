@@ -5,29 +5,35 @@
 //  Created by Zachary Clute on 12/23/15.
 //  Copyright © 2015 Zachary Clute. All rights reserved.
 //
-
-import Foundation
 import Cocoa
 
-
 // This class is designed to only handle one instance menu at a time. Strims should never have more than one menu running.
-class MenuController: NSObject, NSApplicationDelegate {
+class MenuController: NSObject {
     
-    private var strimsController: StrimsController
+    private var strimsController: StrimsController!
     private var mainMenuButton: NSStatusItem!
     private let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
     
-    internal var notificationsAreOn: Bool!
-
+    @IBOutlet weak var mainMenu: NSMenu!
+    @IBOutlet weak var textFieldWindow: NSWindow!
+    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var notificationButton: NSMenuItem!
     
-    init(_ strimsControllerInject: StrimsController) {
-        strimsController = strimsControllerInject
+    var notificationsAreOn: Bool!
+    
+    override init() {
+        super.init()
+    }
+    
+    init(_ strimsController: StrimsController) {
+        self.strimsController = strimsController
+        
+        super.init()
         
         setupMenuItems()
         populateStreamMenuItems()
         mainMenu.update()
     }
-    
     
     func setupMenuItems() {
         let icon = NSImage(named: "menuIcon")

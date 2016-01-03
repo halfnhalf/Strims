@@ -13,18 +13,8 @@ let COMMAND = "/usr/local/bin/livestreamer"
 let QUALITY = "source"
 let INTERVAL: NSTimeInterval = 10.0
 
-var MAINMENU: NSMenu
-var 
-
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
-    //IBOUTLETS
-    @IBOutlet weak var mainMenu: NSMenu!
-    @IBOutlet weak var textField: NSTextField!
-    @IBOutlet weak var textFieldWindow: NSWindow!
-    @IBOutlet weak var notificationButton: NSMenuItem!
-    @IBOutlet weak var installWindow: NSWindow!
-    //END IBOUTLETS
     
     private var menuController: MenuController!
 	private var strimsController: StrimsController!
@@ -32,37 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 	private let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
 	
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
+        InstallController()
 		strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
         menuController = MenuController(strimsController)
 		
-        do {
-            try checkForLivestreamer()
-        } catch {
-            
-        }
 		//DO NOT DISPATCH THE TIMER, dispatch is done in timerevents
 		timer = NSTimer.scheduledTimerWithTimeInterval(INTERVAL, target: self, selector: "timerEvents:", userInfo: nil, repeats: true)
 	}
-    
-    func checkForLivestreamer() throws -> Bool {
-        let task = NSTask()
-        let pipe = NSPipe()
-        var data: NSData
-        var output: NSString
-        
-        task.launchPath = COMMAND
-        task.standardOutput = pipe
-        task.launch()
-        
-        data = pipe.fileHandleForReading.readDataToEndOfFile()
-        output = NSString(data: data, encoding: NSUTF8StringEncoding)!
-        
-        guard output.containsString("usage") else {
-            return false
-        }
-
-        return true
-    }
 	
     func timerEvents(sender: NSTimer) {
         //did streams change?
