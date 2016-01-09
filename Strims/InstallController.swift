@@ -8,7 +8,14 @@
 import Cocoa
 
 class InstallController: NSObject {
+    let installCommand: String = "/usr/bin/sudo"
+    var isInstalled: Bool = false
+    
     @IBOutlet weak var installWindow: NSWindow!
+    
+    enum InstallError: ErrorType {
+        case NotInstalled
+    }
     
     override init() {
         super.init()
@@ -20,6 +27,8 @@ class InstallController: NSObject {
         guard fileManager.fileExistsAtPath(COMMAND) else {
             throw InstallError.NotInstalled
         }
+        
+        isInstalled = true
     }
     
     func askToInstallLivestreamer() {
@@ -27,7 +36,19 @@ class InstallController: NSObject {
         NSApp.activateIgnoringOtherApps(true)
     }
     
-    enum InstallError: ErrorType {
-        case NotInstalled
+    @IBAction func yesButtonClicked(sender: AnyObject) {
+        //user wants to install livestreamer
+        NSAppleScript(source: "do shell script \"sudo easy_install livestreamer\" with administrator privileges")!.executeAndReturnError(nil)
+        do {
+            try checkForLivestreamer()
+        } catch {}
+        
+        if !isInstalled {
+            NSApplication.sharedApplication().terminate(self)
+        }
     }
+    @IBAction func noButtonClicked(sender: AnyObject) {
+        NSApplication.sharedApplication().terminate(self)
+    }
+    
 }

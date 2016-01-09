@@ -17,23 +17,47 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
 	private var strimsController: StrimsController!
 	private var timer: NSTimer!
+	private var didWeInstallTimer: NSTimer!
 	private let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
     @IBOutlet weak var installController: InstallController!
     @IBOutlet weak var menuController: MenuController!
 	
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
+       /* while try installController.checkForLivestreamer() {
+            setup()
+        }
+        catch InstallController.InstallError.NotInstalled {
+            installController.askToInstallLivestreamer()
+        } catch {}*/
+        
         do {
             try installController.checkForLivestreamer()
+            setup()
         } catch InstallController.InstallError.NotInstalled {
             installController.askToInstallLivestreamer()
+            didWeInstallTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "shouldWeProceed:", userInfo: nil, repeats: true)
         } catch {}
         
-		//strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
-        //menuController.setup(strimsController)
 		
 		//DO NOT DISPATCH THE TIMER, dispatch is done in timerevents
-		timer = NSTimer.scheduledTimerWithTimeInterval(INTERVAL, target: self, selector: "timerEvents:", userInfo: nil, repeats: true)
 	}
+    
+    func shouldWeProceed(sender: NSTimer) {
+        if installController.isInstalled {
+            didWeInstallTimer.invalidate()
+            didWeInstallTimer = nil
+            setup()
+        }
+        if !installController.installWindow.visible {
+            NSApplication.sharedApplication().terminate(self)
+        }
+    }
+    
+    func setup() {
+		strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
+        menuController.setup(strimsController)
+		timer = NSTimer.scheduledTimerWithTimeInterval(INTERVAL, target: self, selector: "timerEvents:", userInfo: nil, repeats: true)
+    }
 	
     func timerEvents(sender: NSTimer) {
         //did streams change?

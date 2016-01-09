@@ -89,7 +89,7 @@
         <window title="Strims" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Nyg-A0-8iy">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="307" height="130"/>
+            <rect key="contentRect" x="1179" y="699" width="307" height="130"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="O8h-d2-Lpr">
                 <rect key="frame" x="0.0" y="0.0" width="307" height="130"/>
@@ -109,6 +109,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="yesButtonClicked:" target="16e-cy-WYa" id="JBL-Lw-09u"/>
+                        </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyv-of-WeU">
                         <rect key="frame" x="18" y="64" width="271" height="17"/>
@@ -124,6 +127,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="miniSystem"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="noButtonClicked:" target="16e-cy-WYa" id="bKO-ZZ-z92"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
