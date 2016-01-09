@@ -7,8 +7,17 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppDelegate" customModule="Strims" customModuleProvider="target"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Strims" customModuleProvider="target"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject">
+            <connections>
+                <outlet property="delegate" destination="dh2-Sb-cJw" id="dC3-b3-Jnx"/>
+            </connections>
+        </customObject>
+        <customObject id="dh2-Sb-cJw" customClass="AppDelegate" customModule="Strims" customModuleProvider="target">
+            <connections>
+                <outlet property="installController" destination="16e-cy-WYa" id="y7D-te-Gup"/>
+                <outlet property="menuController" destination="rnh-qo-hRu" id="GAo-hL-NWd"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="rnh-qo-hRu" customClass="MenuController" customModule="Strims" customModuleProvider="target">
             <connections>
@@ -23,24 +32,24 @@
                 <outlet property="installWindow" destination="Nyg-A0-8iy" id="TVA-uW-UJ7"/>
             </connections>
         </customObject>
-        <menu id="nD3-hv-VdF">
+        <menu autoenablesItems="NO" id="nD3-hv-VdF">
             <items>
                 <menuItem title="Refresh" id="S6O-jg-na6">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="refreshButtonClicked:" target="rnh-qo-hRu" id="ieA-8e-rDu"/>
+                        <action selector="refreshButtonClicked:" target="rnh-qo-hRu" id="Uqi-x8-7G3"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Add" id="GeJ-yQ-msN">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="addButtonClicked:" target="rnh-qo-hRu" id="peL-b7-AM8"/>
+                        <action selector="addButtonClicked:" target="rnh-qo-hRu" id="h8P-Ce-0HJ"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Notifications" state="on" id="imJ-fA-SLB">
                     <modifierMask key="keyEquivalentModifierMask" shift="YES"/>
                     <connections>
-                        <action selector="notificationButtonClicked:" target="rnh-qo-hRu" id="A61-1X-Xjl"/>
+                        <action selector="notificationButtonClicked:" target="rnh-qo-hRu" id="0vG-Y3-KO7"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="gaG-Fr-aGo">
@@ -70,7 +79,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="addTextFieldReturn:" target="rnh-qo-hRu" id="z2k-H2-awn"/>
+                            <action selector="addTextFieldReturn:" target="rnh-qo-hRu" id="8bN-9O-nGw"/>
                         </connections>
                     </textField>
                 </subviews>

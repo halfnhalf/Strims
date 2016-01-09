@@ -25,11 +25,8 @@ class MenuController: NSObject {
         super.init()
     }
     
-    init(_ strimsController: StrimsController) {
+    func setup(strimsController: StrimsController) {
         self.strimsController = strimsController
-        
-        super.init()
-        
         setupMenuItems()
         populateStreamMenuItems()
         mainMenu.update()
@@ -43,12 +40,10 @@ class MenuController: NSObject {
         notificationsAreOn = true
         
         mainMenuButton =  NSStatusBar.systemStatusBar().statusItemWithLength(-1)
-        mainMenu.autoenablesItems = false
         mainMenuButton.image = icon
         mainMenuButton.menu = mainMenu
         
         textFieldMenu.addItem(textFieldMenuItem)
-        mainMenu.update()
     }
     
     //populate the list of streams and their status

@@ -5,7 +5,6 @@
 //  Created by Zachary Clute on 12/11/14.
 //  Copyright (c) 2014 Zachary Clute. All rights reserved.
 //
-
 import Cocoa
 
 let STRIMURL = "twitch.tv/"
@@ -16,15 +15,21 @@ let INTERVAL: NSTimeInterval = 10.0
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     
-    private var menuController: MenuController!
 	private var strimsController: StrimsController!
 	private var timer: NSTimer!
 	private let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+    @IBOutlet weak var installController: InstallController!
+    @IBOutlet weak var menuController: MenuController!
 	
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
-        InstallController()
-		strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
-        menuController = MenuController(strimsController)
+        do {
+            try installController.checkForLivestreamer()
+        } catch InstallController.InstallError.NotInstalled {
+            installController.askToInstallLivestreamer()
+        } catch {}
+        
+		//strimsController = StrimsController(strimURL: STRIMURL, command: COMMAND, quality: QUALITY)
+        //menuController.setup(strimsController)
 		
 		//DO NOT DISPATCH THE TIMER, dispatch is done in timerevents
 		timer = NSTimer.scheduledTimerWithTimeInterval(INTERVAL, target: self, selector: "timerEvents:", userInfo: nil, repeats: true)

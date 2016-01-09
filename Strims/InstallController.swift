@@ -5,7 +5,6 @@
 //  Created by Zachary Clute on 12/29/15.
 //  Copyright © 2015 Zachary Clute. All rights reserved.
 //
-
 import Cocoa
 
 class InstallController: NSObject {
@@ -13,13 +12,6 @@ class InstallController: NSObject {
     
     override init() {
         super.init()
-
-        do {
-            try checkForLivestreamer()
-            return
-        } catch InstallError.NotInstalled {
-            askToInstallLivestreamer()
-        } catch {}
     }
     
     func checkForLivestreamer() throws {

@@ -5,7 +5,6 @@
 //  Created by Zachary Clute on 12/12/14.
 //  Copyright (c) 2014 Zachary Clute. All rights reserved.
 //
-
 import Cocoa
 
 class StrimsController {
