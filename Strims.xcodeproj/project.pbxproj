@@ -11,6 +11,8 @@
 		9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F95FA61A3A5556005264EB /* AppDelegate.swift */; };
 		9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258EAD81A3AE8B200881429 /* StrimsController.swift */; };
 		92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BB6ED61C2B48DE008460A3 /* MenuController.swift */; };
+		92E6BBE71C41D87600BE0ED8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 92E6BBE61C41D87600BE0ED8 /* README.md */; };
+		92E6BBE91C41D91800BE0ED8 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = 92E6BBE81C41D91800BE0ED8 /* LICENSE.md */; };
 		92F95FA91A3A5556005264EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F95FA81A3A5556005264EB /* Images.xcassets */; };
 		92F95FAC1A3A5556005264EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F95FAA1A3A5556005264EB /* MainMenu.xib */; };
 		92F95FB81A3A5556005264EB /* StrimsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F95FB71A3A5556005264EB /* StrimsTests.swift */; };
@@ -31,6 +33,8 @@
 		925539DB1C076985007DC675 /* Strims.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Strims.entitlements; sourceTree = "<group>"; };
 		9258EAD81A3AE8B200881429 /* StrimsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrimsController.swift; sourceTree = "<group>"; };
 		92BB6ED61C2B48DE008460A3 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		92E6BBE61C41D87600BE0ED8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		92E6BBE81C41D91800BE0ED8 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		92F95FA11A3A5556005264EB /* Strims.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strims.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F95FA51A3A5556005264EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92F95FA61A3A5556005264EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		92F95F981A3A5555005264EB = {
 			isa = PBXGroup;
 			children = (
+				92E6BBE81C41D91800BE0ED8 /* LICENSE.md */,
+				92E6BBE61C41D87600BE0ED8 /* README.md */,
 				92F95FA31A3A5556005264EB /* Strims */,
 				92F95FB41A3A5556005264EB /* StrimsTests */,
 				92F95FA21A3A5556005264EB /* Products */,
@@ -226,7 +232,9 @@
 			files = (
 				9235E6F51A3AD1C20080EDD0 /* AppDelegate.swift in Sources */,
 				921DE09F1C33666C0010B829 /* InstallController.swift in Sources */,
+				92E6BBE71C41D87600BE0ED8 /* README.md in Sources */,
 				92BB6ED71C2B48DE008460A3 /* MenuController.swift in Sources */,
+				92E6BBE91C41D91800BE0ED8 /* LICENSE.md in Sources */,
 				9258EAD91A3AE8B200881429 /* StrimsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
