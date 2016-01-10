@@ -46,9 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if installController.isInstalled {
             didWeInstallTimer.invalidate()
             didWeInstallTimer = nil
+            installController.installWindow.orderOut(nil)
             setup()
         }
-        if !installController.installWindow.visible {
+        else if !installController.installWindow.visible {
             NSApplication.sharedApplication().terminate(self)
         }
     }
